@@ -1,6 +1,5 @@
 /* let productosCategoría = [] */
 
-
 let dentroCarrito = JSON.parse(localStorage.getItem("productosElegidos")) || [];
 
 let divTarjetas = document.getElementsByClassName("cajaTarjetas");
@@ -48,14 +47,19 @@ fetch("productos.json")
 
                 
         botonAgregar.addEventListener("click", () => {
-                /* let compraContenido = document.createElement("div");
-                compraContenido.className = "compraContenido"; */
-            dentroCarrito.push({
-                imagen: teclado.imagen,
-                id: teclado.id,
-                titulo: teclado.nombre,
-                valor: teclado.valor,
-            });
+            const index = dentroCarrito.findIndex((producto) => producto.id === teclado.id);
+            if (index !== -1) {
+                dentroCarrito[index].cantidad++;
+            } else {
+                dentroCarrito.push({
+                    imagen: teclado.imagen,
+                    id: teclado.id,
+                    titulo: teclado.nombre,
+                    valor: teclado.valor,
+                    cantidad: 1
+                });
+            }
+
             refreshCarrito();
             guardadoTemporal();
             Toastify({
@@ -73,7 +77,7 @@ fetch("productos.json")
                     stopOnFocus: true, 
                     style: {
                         borderRadius: "10px",
-                        background: "#4CAF50",                        
+                        background: "#147550",                        
                     },
                 }).showToast();
                 console.log(dentroCarrito);
@@ -94,53 +98,70 @@ fetch("productos.json")
     contenidoCarrito.style.display = "block";
     const contenidoCarritoTitulo = document.createElement("div");
     contenidoCarritoTitulo.setAttribute("class","tituloCarrito");
-    contenidoCarritoTitulo.innerHTML = "<h2>Productos Aregados al Carrito de Compra</h2>"
+    contenidoCarritoTitulo.innerHTML = "<h2>Productos Aregados al Carrito de Compra</h2>";
     contenidoCarrito.appendChild(contenidoCarritoTitulo);
 
     const contenidoCarritoCerrar = document.createElement("h2");
     contenidoCarritoCerrar.setAttribute("class","cerrarCarrito");
     contenidoCarritoCerrar.innerText = "🔴"
     contenidoCarritoTitulo.appendChild(contenidoCarritoCerrar);
-
+    
     contenidoCarritoCerrar.addEventListener(("click"), () => {
         contenidoCarrito.style.display = "none";
     });
+    
+    const contenidoCarritoTotal = document.createElement("div");
+    contenidoCarritoTotal.setAttribute("class","totalCarrito");
+    contenidoCarritoTotal.innerHTML = "<h2>Total: $ </h2>";
+    contenidoCarrito.appendChild(contenidoCarritoTotal);
 
+    const totalCarrito = dentroCarrito.reduce((total, producto) => total + producto.valor * producto.cantidad, 0);
+    let contCarritoTotal = document.createElement("h2");
+    contCarritoTotal.className = "contCarritoTotal";
+    contCarritoTotal.innerHTML = totalCarrito;
+    contenidoCarritoTotal.appendChild(contCarritoTotal);
+    
     dentroCarrito.forEach((teclado) => {
         let tecladoElegido = document.createElement("div");
         tecladoElegido.setAttribute("class","productoElegido");
         
-            let tecladoElegidoImagen = document.createElement("img");
-            tecladoElegidoImagen.className = "tecladoElegidoImagen";
-            tecladoElegidoImagen.setAttribute("src",teclado.imagen);
-            tecladoElegido.appendChild(tecladoElegidoImagen);
-
-            let tecladoElegidoId = document.createElement("h4");
-            tecladoElegidoId.className = "tecladoElegidoId";
-            tecladoElegidoId.innerHTML = "ID: " + teclado.id;
-            tecladoElegido.appendChild(tecladoElegidoId);
+        let tecladoElegidoImagen = document.createElement("img");
+        tecladoElegidoImagen.className = "tecladoElegidoImagen";
+        tecladoElegidoImagen.setAttribute("src",teclado.imagen);
+        tecladoElegido.appendChild(tecladoElegidoImagen);
+        
+        let tecladoElegidoId = document.createElement("h4");
+        tecladoElegidoId.className = "tecladoElegidoId";
+        tecladoElegidoId.innerHTML = "ID: " + teclado.id;
+        tecladoElegido.appendChild(tecladoElegidoId);
         
             let tecladoElegidoTitulo = document.createElement("h3");
             tecladoElegidoTitulo.className = "tecladoElegidoTitulo";
             tecladoElegidoTitulo.innerText = teclado.titulo;
             tecladoElegido.appendChild(tecladoElegidoTitulo);
-
+            
+            let tecladoElegidoCantidad = document.createElement("h4");
+            tecladoElegidoCantidad.className = "tecladoElegidoCantidad";
+            tecladoElegidoCantidad.innerText = "Cantidad: " + teclado.cantidad;
+            tecladoElegido.appendChild(tecladoElegidoCantidad);
+            
             let tecladoElegidoPrecio = document.createElement("h3");
             tecladoElegidoPrecio.className = "tecladoElegidoPrecio";
             tecladoElegidoPrecio.innerText = "$ " + teclado.valor;
             tecladoElegido.appendChild(tecladoElegidoPrecio);
-
+            
             let tecladoElegidoEliminar = document.createElement("button");
             tecladoElegidoEliminar.className = "tecladoElegidoEliminar";
             tecladoElegidoEliminar.innerText = "Eliminar";
             tecladoElegido.appendChild(tecladoElegidoEliminar);
-        
-        contenidoCarrito.appendChild(tecladoElegido);
-    
+            
+            contenidoCarrito.appendChild(tecladoElegido);
 
         tecladoElegidoEliminar.addEventListener('click', () => {
             const id = teclado.id;
     
+            dentroCarrito = dentroCarrito.filter((producto) => producto.id !== id);
+            
             Toastify({
             text: "Producto eliminado...",
             offset: {
@@ -156,18 +177,16 @@ fetch("productos.json")
             stopOnFocus: true, 
             style: {
                 borderRadius: "10px",
-                background: "#f44336",                        
+                background: "#910a00",                        
             },
             }).showToast();
     
-            dentroCarrito = dentroCarrito.filter((producto) => producto.id !== id);
     
             refreshCarrito();
+            guardadoTemporal();
         });
     });
 }
-
-
 
 
 

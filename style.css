@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
     header .banner{
         border: solid #4c5bb1;
         border-radius: 10px;
-        background-image: url("../images/tecladobanner2.png");
+        background-image: url("./images/tecladobanner2.png");
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
     header .banner{
         border: solid #147550;
         border-radius: 10px;
-        background-image: url("../images/tecladobanner.jpg");
+        background-image: url("./images/tecladobanner.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
@@ -254,6 +254,17 @@ width: 6%;}
     margin-bottom: 30px;
 }
 
+.totalCarrito{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.contCarritoTotal{
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
 .productoElegido{
     width: 100%;
     padding: 20px;
@@ -279,8 +290,12 @@ width: 6%;}
     padding-left: 40px;
 }
 
-.tecladoElegidoPrecio{
+.tecladoElegidoCantidad{
     margin-left: auto;
+}
+
+.tecladoElegidoPrecio{
+    margin-left: 25px;
 }
 
 .tecladoElegidoEliminar {
