@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "categoria": "Teclado mecánico",
+        "nombre": "Teclado Logitech G513 Carbon",
+        "valor": 24500,
+        "stock": 6,
+        "imagen": "./images/g513carbon.jpg",
+        "descripcion": "G513 es un teclado para juegos de alto desempeño con interruptores mecánicos avanzados GX Brown Tactile. El reposamanos extraíble de espuma viscoelástica y la construcción de aleación de aluminio premium complementan las características de G513 para hacerlo el mejor de su clase."
+    },
+    {
+        "id": 2,
+        "categoria": "Teclado mecánico",
+        "nombre": "Teclado HyperX Alloy Origins",
+        "valor": 18000,
+        "stock": 0,
+        "imagen": "./images/alloyorigins.jpg",
+        "descripcion": "El teclado HyperX Alloy Origins es resistente, compacto y cuenta con switches mecánicos HyperX personalizados que han sido diseñados para proporcionar a los jugadores la mejor combinación de rendimiento, fiabilidad y estilo, además de un cuerpo en aluminio muy resistente."
+    },
+    {
+        "id": 3,
+        "categoria": "Teclado mecánico",
+        "nombre": "Teclado ROG Claymore II",
+        "valor": 37100,
+        "stock": 7,
+        "imagen": "./images/rogclaymoreii.jpg",
+        "descripcion": "Teclado mecánico para juegos modular TKL 80% / 100% ROG Claymore II con Switches Mecánicos Ópticos ROG RX, teclado numérico y reposamuñecas desmontables, modos 2.4G alámbrico e inalámbricos, teclas de acceso rápido extra personalizables, rueda de control de volumen e inalámbrico."
+    },
+    {
+        "id": 4,
+        "categoria": "Teclado de membrana",
+        "nombre": "Teclado Corsair K55 RGB",
+        "valor": 19800,
+        "stock": 3,
+        "imagen": "./images/corsairk55.jpg",
+        "descripcion": "El K55 RGB cuenta con modos de retroiluminación RGB intuitivos, sus 6 teclas macro específicas, el efecto antifantasmas multitecla y sus controles multimedia programables sobre la marcha ofrecen un gran control y capacidad de personalización, elementos esenciales para la victoria."
+    },
+    {
+        "id": 5,
+        "categoria": "Teclado de membrana",
+        "nombre": "Teclado Redragon Shiva K512",
+        "valor": 16400,
+        "stock": 0,
+        "imagen": "./images/shivak512.jpg",
+        "descripcion": "La cantidad de prestaciones que ofrece el Shiva es asombrosa: prácticamente todo lo que presumen los teclados mecánicos tope de gama, el Shiva lo tiene en su tipo membrana. Botones macro y multimedia dedicados. Iluminación RGB con 7 perfiles configurables. Reposamuñecas desmontable magnético."
+    },
+    {
+        "id": 6,
+        "categoria": "Teclado de membrana",
+        "nombre": "Teclado Sentey Acrylix RGB",
+        "valor": 8600,
+        "stock": 4,
+        "imagen": "./images/senteyacrylix.jpg",
+        "descripcion": "El diseño de retroiluminación, mejora la experiencia como usuario, enalteciendo el entorno para crear una atmósfera única. Acrylix es retroiluminado con LED de alta intensidad brillante que cuenta con tres niveles de brillo diferentes adaptados para diferentes momentos a lo largo del día."
+    }
+]
